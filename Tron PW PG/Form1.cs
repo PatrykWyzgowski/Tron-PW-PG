@@ -15,11 +15,12 @@ namespace Tron_PW_PG
         private int dir = 0;
         private Timer my_timer = new Timer();
         private Random rand = new Random();
-        private Graphics graphics;
+        public Graphics graphics;
         private Lightcycle player1, player2;
         public Menu()
         {
             InitializeComponent();
+            //graphics = new Graphics();
             player1 = new Lightcycle();
             //player2 = new Lightcycle();
             my_timer.Interval = 75;

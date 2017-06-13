@@ -8,10 +8,11 @@ namespace Tron_PW_PG
     public class Lightcycle
     {
         public Rectangle[] Body;
-        private int x_cor = 20, y_cor = 20;
+        private int x_cor = 0, y_cor = 0;
         private int width = 10, height = 10;
+        //SolidBrush greenBrush = new SolidBrush(Color.Green);
 
-        public void lightcycle()
+        public Lightcycle()
         {
             Body = new Rectangle[1];
             Body[0] = new Rectangle(x_cor, y_cor, width, height);
@@ -20,9 +21,10 @@ namespace Tron_PW_PG
         //{
 
         //}
-
+        
         public void Draw(Graphics graphics)
         { //temporarily
+            //graphics.FillRectangle(greenBrush,x_cor, y_cor, width, height);
             graphics.FillRectangles(Brushes.Green, Body);
         }
 
