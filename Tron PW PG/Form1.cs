@@ -12,6 +12,7 @@ namespace Tron_PW_PG
 {
     public partial class Menu : Form
     {
+        private bool Game = true;
         private int dir = 0;
         private Timer my_timer = new Timer();
         private Random rand = new Random();
@@ -29,37 +30,41 @@ namespace Tron_PW_PG
         }
         private void Menu_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyData)
-            {
-                case Keys.Enter:
-                    if (IntroInfo.Visible)
-                    {
-                        IntroInfo.Visible = false;
-                        my_timer.Start();
-                    }
-                    break;
-                case Keys.Space:
-                    if (!IntroInfo.Visible)
-                        my_timer.Enabled = (my_timer.Enabled) ? false : true;
-                    break;
+            //while (Game)
+            //{
+                switch (e.KeyData)
+                {
+                    case Keys.Enter:
+                        if (IntroInfo.Visible)
+                        {
+                            IntroInfo.Visible = false;
+                            //Game = true;
+                            my_timer.Start();
+                        }
+                        break;
+                    case Keys.Space:
+                        if (!IntroInfo.Visible)
+                            my_timer.Enabled = (my_timer.Enabled) ? false : true;
+                        break;
 
-                case Keys.Right:
-                    if (dir != 2)
-                        dir = 0;
-                    break;
-                case Keys.Down:
-                    if (dir != 3)
-                        dir = 1;
-                    break;
-                case Keys.Left:
-                    if (dir != 0)
-                        dir = 2;
-                    break;
-                case Keys.Up:
-                    if (dir != 1)
-                        dir = 3;
-                    break;
-            }
+                    case Keys.Right:
+                        if (dir != 2)
+                            dir = 0;
+                        break;
+                    case Keys.Down:
+                        if (dir != 3)
+                            dir = 1;
+                        break;
+                    case Keys.Left:
+                        if (dir != 0)
+                            dir = 2;
+                        break;
+                    case Keys.Up:
+                        if (dir != 1)
+                            dir = 3;
+                        break;
+                }
+            //}
         }
         
 
@@ -82,7 +87,8 @@ namespace Tron_PW_PG
                 player1.Body[0].Y = 0 + 1;
 
 
-
+            if (true)
+                player1.Trace();
             //intersekcja z drugim graczem
             this.Invalidate();
         }
@@ -95,8 +101,11 @@ namespace Tron_PW_PG
 
         private void Restart()
         {
+            //Game = false;
             my_timer.Stop();
             graphics.Clear(SystemColors.Control);
+            player1 = new Lightcycle();
+            IntroInfo.Visible = true;
         }
 
     }

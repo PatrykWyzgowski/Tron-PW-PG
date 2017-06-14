@@ -8,7 +8,7 @@ namespace Tron_PW_PG
     public class Lightcycle
     {
         public Rectangle[] Body;
-        private int x_cor = 0, y_cor = 0;
+        private int x_cor=0, y_cor=0;
         private int width = 10, height = 10;
         //SolidBrush greenBrush = new SolidBrush(Color.Green);
 
