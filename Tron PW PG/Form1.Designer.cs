@@ -38,8 +38,9 @@
             this.IntroInfo.Name = "IntroInfo";
             this.IntroInfo.Size = new System.Drawing.Size(300, 300);
             this.IntroInfo.TabIndex = 0;
-            this.IntroInfo.Text = "Klon gry Tron \r\nProjekt zaliczeniowy WPA PG\r\n\r\nautor:Patryk Wyżgowski\r\n\r\nWciśnij " +
-    "Enter, by rozpocząć grę.\r\n\r\nSterowanie:\r\nGracz 1: Strzałki\r\nGracz 2: WSAD";
+            this.IntroInfo.Text = "Klon gry Tron \r\nProjekt zaliczeniowy WPA PG\r\n\r\nautor:Patryk Wyżgowski\r\n\r\nWynik wy" +
+    "świetla się na pasku tytułu.\r\nWciśnij Enter, by rozpocząć grę.\r\n\r\nSterowanie:\r\nG" +
+    "racz 1: Strzałki\r\nGracz 2: WSAD";
             this.IntroInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Menu
