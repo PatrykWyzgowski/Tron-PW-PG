@@ -15,7 +15,8 @@ namespace Tron_PW_PG
         private bool Game = true;
         //private int dir = 0;
         private Timer my_timer = new Timer();
-        private Random rand = new Random();
+        //private static Random rand = new Random();
+        //int randomNumber = rand.Next(0, 100);
         public Graphics graphics;
         //private Lightcycle player1, player2;
         private Lightcycle[] player = new Lightcycle[2];
@@ -23,8 +24,8 @@ namespace Tron_PW_PG
         {
             InitializeComponent();
             //graphics = new Graphics();
-            player[0] = new Lightcycle();
-            //player[1] = new Lightcycle();
+            player[0] = new Lightcycle(125,500,Color.Red);
+            player[1] = new Lightcycle(375,500,Color.Blue);
             my_timer.Interval = 75;
             my_timer.Tick += Update;
 
@@ -65,7 +66,24 @@ namespace Tron_PW_PG
                         if (player[0].dir != 1)
                         player[0].dir = 3;
                         break;
-                }
+
+                case Keys.D:
+                    if (player[1].dir != 2)
+                        player[1].dir = 0;
+                    break;
+                case Keys.S:
+                    if (player[1].dir != 3)
+                        player[1].dir = 1;
+                    break;
+                case Keys.A:
+                    if (player[1].dir != 0)
+                        player[1].dir = 2;
+                    break;
+                case Keys.W:
+                    if (player[1].dir != 1)
+                        player[1].dir = 3;
+                    break;
+            }
             //}
         }
         
@@ -74,11 +92,17 @@ namespace Tron_PW_PG
         {
             if (true)
                 player[0].Trace();
+            player[1].Trace();
             this.Text = string.Format("Tron - Score: 0-0");
             player[0].Drive(player[0].dir);
+            player[1].Drive(player[1].dir);
             //suicide detection
             for (int i = 1; i < player[0].Body.Length; i++)
                 if (player[0].Body[0].IntersectsWith(player[0].Body[i]))
+                    //Form2.ShowDialog.Text("Player 2 Wins");
+                    Restart();
+            for (int i = 1; i < player[1].Body.Length; i++)
+                if (player[1].Body[0].IntersectsWith(player[1].Body[i]))
                     Restart();
             //torus window-leaving style
             if (player[0].Body[0].X < 0)
@@ -90,8 +114,17 @@ namespace Tron_PW_PG
             if (player[0].Body[0].Y > 500)
                 player[0].Body[0].Y = 0 + 1;
 
+            if (player[1].Body[0].X < 0)
+                player[1].Body[0].X = 500 - 1;
+            if (player[1].Body[0].X > 500)
+                player[1].Body[0].X = 0 + 1;
+            if (player[1].Body[0].Y < 0)
+                player[1].Body[0].Y = 500 - 1;
+            if (player[1].Body[0].Y > 500)
+                player[1].Body[0].Y = 0 + 1;
 
-            
+
+
             //intersekcja z drugim graczem
             this.Invalidate();
         }
@@ -99,6 +132,7 @@ namespace Tron_PW_PG
         {
             graphics = this.CreateGraphics();
             player[0].Draw(graphics);
+            player[1].Draw(graphics);
 
         }
 
@@ -107,9 +141,11 @@ namespace Tron_PW_PG
             //Game = false;
             my_timer.Stop();
             graphics.Clear(SystemColors.Control);
-            player[0] = new Lightcycle();
+            player[0] = new Lightcycle(125,500,Color.Red);
+            player[1] = new Lightcycle(375, 500, Color.Blue);
             IntroInfo.Visible = true;
             player[0].dir = 0;
+            player[1].dir = 0;
         }
 
     }

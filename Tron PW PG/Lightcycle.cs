@@ -8,16 +8,19 @@ namespace Tron_PW_PG
     public class Lightcycle
     {
         public Rectangle[] Body;
-        private int x_cor = 0, y_cor = 0;
+        private int xstart, ystart;
         private int width = 10, height = 10;
         public int dir { get; set; }
-        //SolidBrush Bodycolor;
+        private SolidBrush Bodycolor=new SolidBrush(Color.Green);
 
-        public Lightcycle()
+        public Lightcycle(int x,int y, Color kolor)
         {
+            xstart = x;
+            ystart = y;
             Body = new Rectangle[1];
-            Body[0] = new Rectangle(x_cor, y_cor, width, height);
-            dir = 0;
+            Body[0] = new Rectangle(xstart, ystart, width, height);
+            dir = 3;
+            Bodycolor.Color = kolor;
         }
         public void Draw()
         {
@@ -28,7 +31,7 @@ namespace Tron_PW_PG
         public void Draw(Graphics graphics)
         { //temporarily
             //graphics.FillRectangle(greenBrush,x_cor, y_cor, width, height);
-            graphics.FillRectangles(Brushes.Green, Body);
+            graphics.FillRectangles(Bodycolor, Body);
         }
 
         public void Drive(int dir)
