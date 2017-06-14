@@ -106,6 +106,7 @@ namespace Tron_PW_PG
             graphics.Clear(SystemColors.Control);
             player1 = new Lightcycle();
             IntroInfo.Visible = true;
+            dir = 0;
         }
 
     }

@@ -17,10 +17,11 @@ namespace Tron_PW_PG
             Body = new Rectangle[1];
             Body[0] = new Rectangle(x_cor, y_cor, width, height);
         }
-        //public void Draw()
-        //{
-
-        //}
+        public void Draw()
+        {
+            for (int i = Body.Length - 1; i > 0; i--)
+                Body[i] = Body[i - 1];
+        }
         
         public void Draw(Graphics graphics)
         { //temporarily
@@ -30,7 +31,7 @@ namespace Tron_PW_PG
 
         public void Drive(int dir)
         {
-            //Draw();
+            Draw();
             switch(dir)
             {
                 case 0:
