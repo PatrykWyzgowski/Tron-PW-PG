@@ -104,6 +104,13 @@ namespace Tron_PW_PG
             for (int i = 1; i < player[1].Body.Length; i++)
                 if (player[1].Body[0].IntersectsWith(player[1].Body[i]))
                     Restart();
+            for (int i = 1; i < player[0].Body.Length; i++)
+                if (player[0].Body[0].IntersectsWith(player[1].Body[i]))
+                    //Form2.ShowDialog.Text("Player 2 Wins");
+                    Restart();
+            for (int i = 1; i < player[1].Body.Length; i++)
+                if (player[1].Body[0].IntersectsWith(player[0].Body[i]))
+                    Restart();
             //torus window-leaving style
             if (player[0].Body[0].X < 0)
                 player[0].Body[0].X = 500 - 1;
@@ -144,8 +151,8 @@ namespace Tron_PW_PG
             player[0] = new Lightcycle(125,500,Color.Red);
             player[1] = new Lightcycle(375, 500, Color.Blue);
             IntroInfo.Visible = true;
-            player[0].dir = 0;
-            player[1].dir = 0;
+            player[0].dir = 3;
+            player[1].dir = 3;
         }
 
     }

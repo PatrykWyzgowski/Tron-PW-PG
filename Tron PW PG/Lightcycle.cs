@@ -9,7 +9,7 @@ namespace Tron_PW_PG
     {
         public Rectangle[] Body;
         private int xstart, ystart;
-        private int width = 10, height = 10;
+        private int width = 7, height = 7;
         public int dir { get; set; }
         private SolidBrush Bodycolor=new SolidBrush(Color.Green);
 
@@ -40,16 +40,16 @@ namespace Tron_PW_PG
             switch(dir)
             {
                 case 0:
-                    Body[0].X += 10; 
+                    Body[0].X += 7; 
                     break;
                 case 1:
-                    Body[0].Y += 10;
+                    Body[0].Y += 7;
                     break;
                 case 2:
-                    Body[0].X -= 10;
+                    Body[0].X -= 7;
                     break;
                 case 3:
-                    Body[0].Y -= 10;
+                    Body[0].Y -= 7;
                     break;
             }
         }
