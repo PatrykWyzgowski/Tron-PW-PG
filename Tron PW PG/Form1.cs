@@ -43,20 +43,20 @@ namespace Tron_PW_PG
                         my_timer.Enabled = (my_timer.Enabled) ? false : true;
                     break;
 
-                case Keys.Up:
-                    if (dir != 1)
+                case Keys.Right:
+                    if (dir != 2)
                         dir = 0;
                     break;
                 case Keys.Down:
                     if (dir != 3)
-                        dir = 2;
+                        dir = 1;
                     break;
                 case Keys.Left:
                     if (dir != 0)
-                        dir = 1;
+                        dir = 2;
                     break;
-                case Keys.Right:
-                    if (dir != 2)
+                case Keys.Up:
+                    if (dir != 1)
                         dir = 3;
                     break;
             }
@@ -72,12 +72,19 @@ namespace Tron_PW_PG
                 if (player1.Body[0].IntersectsWith(player1.Body[i]))
                     Restart();
             //torus window-leaving style
-            if (player1.Body[0].X < 0 || player1.Body[0].X > 500)
+            if (player1.Body[0].X < 0)
                 player1.Body[0].X = 500 - 1;
-            if (player1.Body[0].Y < 0 || player1.Body[0].Y > 500)
+            if (player1.Body[0].X > 500)
+                player1.Body[0].X = 0 + 1;
+            if (player1.Body[0].Y < 0)
                 player1.Body[0].Y = 500 - 1;
+            if (player1.Body[0].Y > 500)
+                player1.Body[0].Y = 0 + 1;
+
+
+
             //intersekcja z drugim graczem
-        this.Invalidate();
+            this.Invalidate();
         }
         private void Menu_Paint(object sender, PaintEventArgs e)
         {

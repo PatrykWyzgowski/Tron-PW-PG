@@ -34,16 +34,16 @@ namespace Tron_PW_PG
             switch(dir)
             {
                 case 0:
-                    Body[0].Y += 10; 
+                    Body[0].X += 10; 
                     break;
                 case 1:
-                    Body[0].Y -= 10;
+                    Body[0].Y += 10;
                     break;
                 case 2:
                     Body[0].X -= 10;
                     break;
                 case 3:
-                    Body[0].X += 10;
+                    Body[0].Y -= 10;
                     break;
             }
         }
