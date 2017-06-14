@@ -60,5 +60,5 @@ namespace Tron_PW_PG
             temp.Add(new Rectangle(Body[Body.Length - 1].X, Body[Body.Length - 1].Y, width, height));
             Body = temp.ToArray();
         }
-    }
+    }//GRa skończona
 }
